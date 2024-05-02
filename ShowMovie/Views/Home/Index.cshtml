@@ -1,0 +1,11 @@
+﻿@model MovieViewModel
+
+<div style="width:100%;height:100vh;background-color:red;overflow:scroll;display:flex;">
+    @for (int i = 0; i < Model.Movies.Count; i++)
+    {
+        <div style="margin-top:8%;margin:auto;width:30%;height:50%;">
+            <h1 style="text-align:center;">@Model.Movies[i].Name</h1>
+            <img style="width:100%;height:100%" src="@Model.Movies[i].Poster" />
+        </div>
+    }
+</div>
