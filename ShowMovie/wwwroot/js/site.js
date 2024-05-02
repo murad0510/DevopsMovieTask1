@@ -7,7 +7,7 @@ function InvokeHomeOndex() {
         method: "GET",
 
         success: function (data) {
-            console.log("s");
+            //console.log("s");
         }
     })
 }
