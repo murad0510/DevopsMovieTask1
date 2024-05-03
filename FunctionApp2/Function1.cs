@@ -12,7 +12,7 @@ using Microsoft.OData.Edm;
 using Newtonsoft.Json;
 using StackExchange.Redis;
 
-namespace FunctionApp2
+namespace FunctionApp1
 {
     public class Function1
     {

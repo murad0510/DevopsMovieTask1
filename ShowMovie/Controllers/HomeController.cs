@@ -8,15 +8,14 @@ namespace ShowMovie.Controllers
 {
     public class HomeController : Controller
     {
-        static readonly ConnectionMultiplexer redis = ConnectionMultiplexer.Connect("redis-12939.c251.east-us-mz.azure.redns.redis-cloud.com:12939,password=gQEQnmuLQyxtwFApDk2TmWiYPyd6830N");
 
         public async Task<IActionResult> Index()
         {
+            ConnectionMultiplexer redis = ConnectionMultiplexer.Connect("redis-12939.c251.east-us-mz.azure.redns.redis-cloud.com:12939,password=gQEQnmuLQyxtwFApDk2TmWiYPyd6830N");
             var db = redis.GetDatabase();
 
             var hashEntries = await db.HashGetAllAsync("movies");
 
-            
             List<Movie> movieList = new List<Movie>();
             foreach (var hashEntry in hashEntries)
             {

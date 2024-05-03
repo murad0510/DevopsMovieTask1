@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34607.119
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevopsMovieTask1", "DevopsMovieTask1\DevopsMovieTask1.csproj", "{0A2C8B28-398C-4C26-B07D-905FED470770}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevopsMovieTask1", "DevopsMovieTask1\DevopsMovieTask1.csproj", "{0A2C8B28-398C-4C26-B07D-905FED470770}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunctionApp2", "FunctionApp2\FunctionApp2.csproj", "{0DD36029-A555-4B8A-9F29-6EDFE9C72B1C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunctionApp1", "FunctionApp2\FunctionApp1.csproj", "{0DD36029-A555-4B8A-9F29-6EDFE9C72B1C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShowMovie", "ShowMovie\ShowMovie.csproj", "{A6A2ACDA-683F-4E14-AB81-93C2FEE22A2A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShowMovie", "ShowMovie\ShowMovie.csproj", "{A6A2ACDA-683F-4E14-AB81-93C2FEE22A2A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

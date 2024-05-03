@@ -2,6 +2,7 @@
 using DevopsMovieTask1.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Text;
 
 namespace DevopsMovieTask1.Controllers
 {
@@ -25,7 +26,8 @@ namespace DevopsMovieTask1.Controllers
         [HttpPost]
         public async Task<IActionResult> Index(string movieName)
         {
-            await _queueClient.SendMessageAsync(movieName);
+            var movoe=Convert.ToBase64String(Encoding.UTF8.GetBytes(movieName));
+            await _queueClient.SendMessageAsync(movoe);
 
             return View();
         }
