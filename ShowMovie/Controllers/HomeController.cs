@@ -12,43 +12,39 @@ namespace ShowMovie.Controllers
 
         public async Task<IActionResult> Index()
         {
+            return View();
+        }
+
+        public async Task<IActionResult> GetMovie()
+        {
             var db = redis.GetDatabase();
 
             var hashEntries = await db.HashGetAllAsync("movies");
 
-            List<Movie> movieList = new List<Movie>();
-            foreach (var hashEntry in hashEntries)
+            var movie = new Movie();
+
+            if (hashEntries.Length > 0)
             {
+                var hashEntry = hashEntries[0];
+
                 string title = hashEntry.Name;
                 string poster = hashEntry.Value;
 
-                var movie = new Movie
-                {
-                    Name = title,
-                    Poster = poster,
-                };
-
-                movieList.Add(movie);
+                movie.Name = title;
+                movie.Poster = poster;
             }
 
-            var model = new MovieViewModel
-            {
-                Movies = movieList
-            };
-
-            return View(model);
+            return Ok(movie);
         }
 
-        public async Task<IActionResult> DeleteMovie()
+        public async Task DeleteMovie()
         {
             var db = redis.GetDatabase();
             var hashEntries = await db.HashGetAllAsync("movies");
 
-            List<Movie> movieList = new List<Movie>();
-
-
-            foreach (var hashEntry in hashEntries)
+            if (hashEntries.Length > 0)
             {
+                var hashEntry = hashEntries[0];
                 string title = hashEntry.Name;
                 string poster = hashEntry.Value;
 
@@ -58,15 +54,8 @@ namespace ShowMovie.Controllers
                     Poster = poster,
                 };
 
-                movieList.Add(movie);
+                db.HashDelete("movies", movie.Name);
             }
-
-            if (movieList.Count > 0)
-            {
-                db.HashDelete("movies", movieList[0].Name);
-            }
-
-            return RedirectToAction("Index", "Home");
         }
     }
 }
